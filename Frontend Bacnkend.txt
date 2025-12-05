@@ -1,0 +1,45 @@
+Backend:
+
+
+
+wsl
+docker ps 
+a docker-laravel… előtti kódsort másold ki!
+docker exec -it a 8-assal kezdődő kódsor helye /bin/bash
+cd mappa_neve (mindaddig, amíg a projekt nevéhez nem érsz)
+composer install
+projekt létrehozás: composer create-project laravel/laravel
+migrálás előtt .env fájl létrehozása, de a szokottól eltérően nemcsak az adatbázis nevét írod át, hanem:
+DB_HOST: 			db2
+DB_PASSWORD: 		Aa123456@
+adatbázis, majd táblák kapcsolataikkal és oszlopaikkal - esetlegesen rekordjaikkal - való létrehozása
+migrálás a szokott módon terminálban: php artisan migrate
+és a seedelés: php artisan migrate:fresh --seed
+szerver elindítása: 	
+php artisan key:generate
+php artisan serve --host=0.0.0.0 --port=8000
+localhost:8000 megnyitása böngészőben
+
+
+frontend:
+Lépj be a docker könyvtár web/html mappájába és nyiss egy új powershell terminált:
+wsl
+docker ps
+docker exec -it 8d49076f7d83 /bin/bash
+projekt létrehozás:
+	npx create-react-app appneve
+     	cd appneve
+	aztán npm install:
+	npm install bootstrap
+	npm install axios
+	npm install react-router
+	npm start
+
+
+az index.js-be a bootstrap import kell:
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+rfc-vel egy alapot létrelehet hozni gyorsan
+
+
