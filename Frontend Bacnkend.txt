@@ -21,6 +21,48 @@ php artisan serve --host=0.0.0.0 --port=8000
 localhost:8000 megnyitása böngészőben
 
 
+backend:
+
+ha nem lenne benne api akkor igy kell létrehozni:
+php artisan install:api
+
+env fájl:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=quiz
+DB_USERNAME=root
+DB_PASSWORD=Aa123456@
+
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+SESSION_ENCRYPT=false
+SESSION_PATH=/
+SESSION_DOMAIN=null
+
+migrations:
+a user_table-nél igy kell kinéznie a create-nek
+
+ public function up(): void
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('point');
+            $table->timestamps();
+        });
+
+    }
+
+migrations tábla létrehozás?
+php artisan make:migration create_"létrehozni kivánt tábla neve"_table
+pl.: php artisan make:migration create_answer_table
+
+
+
+
+
 frontend:
 Lépj be a docker könyvtár web/html mappájába és nyiss egy új powershell terminált:
 wsl
